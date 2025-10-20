@@ -1,6 +1,6 @@
 {
   "name": "@webstir-io/vite-frontend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vite-powered frontend module provider for Webstir workspaces.",
   "type": "module",
   "main": "dist/index.js",
