@@ -1,6 +1,7 @@
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { existsSync } from 'node:fs';
+import { createRequire } from 'node:module';
 
 import { glob } from 'glob';
 import type {
@@ -12,7 +13,7 @@ import type {
   ResolvedModuleWorkspace
 } from '@webstir-io/module-contract';
 
-import packageJson from '../package.json' with { type: 'json' };
+const require = createRequire(import.meta.url);
 
 interface PackageJson {
   readonly name: string;
@@ -20,7 +21,7 @@ interface PackageJson {
   readonly engines?: { readonly node?: string };
 }
 
-const pkg = packageJson as PackageJson;
+const pkg = require('../package.json') as PackageJson;
 
 const viteProvider: ModuleProvider = {
   metadata: {
