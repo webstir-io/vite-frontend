@@ -18,12 +18,21 @@ WEBSTIR_FRONTEND_PROVIDER=@webstir-io/vite-frontend webstir build
 
 ```bash
 npm install
+npm run clean          # remove dist artifacts
 npm run build
+npm run test
+npm run smoke
+# Release helper (bumps version, pushes tags to trigger release workflow)
+npm run release -- patch
 ```
 
 Point `WEBSTIR_FRONTEND_PROVIDER_SPEC` at your local checkout to test unpublished builds with the Webstir CLI.
 
 Compiled output is emitted to `dist/` alongside generated type declarations.
+
+Maintainer notes
+- CI runs `npm ci`, `npm run clean`, `npm run build`, `npm run test`, and `npm run smoke` prior to publishing.
+- Publishing targets GitHub Packages per `publishConfig` and is triggered by the release workflow.
 
 ## Community & Support
 
