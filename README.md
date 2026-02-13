@@ -32,7 +32,7 @@ Compiled output is emitted to `dist/` alongside generated type declarations.
 
 Maintainer notes
 - CI runs `npm ci`, `npm run clean`, `npm run build`, `npm run test`, and `npm run smoke` prior to publishing.
-- Publishing targets GitHub Packages per `publishConfig` and is triggered by the release workflow.
+- The release workflow publishes to npm using trusted publishing (`id-token: write` + provenance).
 
 ## Community & Support
 
